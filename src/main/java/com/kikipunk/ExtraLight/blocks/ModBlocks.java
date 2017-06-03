@@ -1,25 +1,23 @@
-package com.kikipunk.ExtraLight.blocks;
+package com.kikipunk.extralight.blocks;
 
 
-import com.kikipunk.ExtraLight.ExtraLight;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModBlocks {
 
-    public static Block torch;
-
+    public static Block torch_on;
+    public static Block torch_off;
+    
     public static void createBlocks() {
-        register(torch = new lamp(true));
-        register(torch = new lamp(false));
+        register(torch_on = new BlockLamp(true));
+        register(torch_off = new BlockLamp(false));
     }
 
     private static <T extends Block> T register(T block, ItemBlock itemBlock) {
         GameRegistry.register(block);
         GameRegistry.register(itemBlock);
-
-        ExtraLight.proxy.registerItemRenderer(itemBlock, 0, block.getUnlocalizedName());
 
         return block;
     }

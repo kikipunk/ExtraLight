@@ -1,5 +1,7 @@
-package com.kikipunk.ExtraLight;
+package com.kikipunk.extralight;
 
+import com.kikipunk.extralight.blocks.ModBlocks;
+import com.kikipunk.extralight.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -18,30 +20,30 @@ public class ExtraLight {
     @Mod.Instance(modId)
     public static ExtraLight instance;
 
-    @SidedProxy(serverSide = "com.kikipunk.ExtraLight.CommonProxy", clientSide = "com.kikipunk.ExtraLight.ClientProxy")
+    @SidedProxy(serverSide = "com.kikipunk.extralight.proxy.CommonProxy", clientSide = "com.kikipunk.extralight.proxy.ClientProxy")
     public static CommonProxy proxy;
 
     public static final CreativeTabs tabextralight = new CreativeTabs("Extra Light") {
         @Override public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.shieldLorexium);
+            return new ItemStack(ModBlocks.torch_on);
         }
     };
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-
         System.out.println(name + " is loading!");
-        ModItems.createItems();
-        ModBlocks.createBlocks();
+
+        proxy.preInit(event);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
 
+        proxy.init(event);
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        proxy.postInit(event);
     }
 }
