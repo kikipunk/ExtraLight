@@ -1,0 +1,16 @@
+[
+{
+  "modid": "extralight",
+  "name": "Extra Light",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Kikipunk"],
+  "credits": "Lorexe la mascote",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

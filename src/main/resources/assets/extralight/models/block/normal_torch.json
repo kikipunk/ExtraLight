@@ -1,0 +1,6 @@
+{
+    "parent": "block/torch",
+    "textures": {
+        "torch": "extralight:blocks/torch_on"
+    }
+}
